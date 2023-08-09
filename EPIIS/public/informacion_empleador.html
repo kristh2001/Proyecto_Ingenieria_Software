@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información del Constituyente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+    <body style="background-color: #090C46;">
+        <div class="container mt-5">
+            <h1 class="text-center text-white" id="constituyenteTitle">Información del Constituyente</h1>
+            <div class="row mt-4">   
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 nombres">Nombres:</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 apellidos">Apellidos:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">   
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 email">Email:</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 contrasenia">Contraseña:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">   
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 dni">DNI:</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 telefono">Número Telefónico:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">   
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 nombrecompania">Nombre Compañía:</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 direccioncompania">Dirección Compañía:</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 lugar">Lugar:</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- -->
+            <div class="row mt-4">
+                <div class="col-md-12">
+                <div class="text-center">
+                    <button
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#cargo">
+                    Cargo
+                    </button>
+                </div>
+                </div>
+            </div>
+
+
+            <!-- Modal para Título Académico -->
+            <div
+            class="modal fade"
+            id="cargo"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="cargoLabel"
+            aria-hidden="true"
+            >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cargoLabel">
+                    Cargo
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="col-md-12">
+                        <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 nominacioncargo">Nominacion Cargo:</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 fechainicio">Fecha de inicio:</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 fechafinal">Fecha de Finalizacion:</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="bg-warning rounded p-3 mb-3">
+                        <p class="font-weight-bold mb-0 institucion">Institucion:</p>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button
+                    type="button"
+                    class="btn btn-danger mx-auto"
+                    data-dismiss="modal"
+                    >
+                    Volver
+                    </button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Enlaza jQuery y Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+            <!-- BOTON -->
+            <div class="row mt-4">
+                <div class="col-md-12 text-right">
+                <button id="btn-generar-historico" class="btn btn-danger">
+                    Generar histórico
+                </button>
+                </div>
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+            <script>
+                window.jsPDF = window.jspdf.jsPDF;
+                function generarHistorico() {
+                    const doc = new jsPDF();
+                    // Obtener los datos del constituyente
+                    const nombres = document.querySelector('.nombres').textContent;
+                    const apellidos = document.querySelector('.apellidos').textContent;
+                    const email = document.querySelector('.email').textContent;
+                    const contrasenia = document.querySelector('.contrasenia').textContent;
+                    const dni = document.querySelector('.dni').textContent;
+                    const telefono = document.querySelector('.telefono').textContent;
+                    const nombrecompania = document.querySelector('.nombrecompania').textContent;
+                    const direccioncompania = document.querySelector('.direccioncompania').textContent;
+                    const lugar = document.querySelector('.lugar').textContent;
+                    const nominacioncargo = document.querySelector('.nominacioncargo').textContent;
+                    const fechainicio = document.querySelector('.fechainicio').textContent;
+                    const fechafinal = document.querySelector('.fechafinal').textContent;
+                    const institucion = document.querySelector('.institucion').textContent;
+
+                    const cambiosRealizados =
+                        `${nombres}\n` +
+                        `${apellidos}\n` +
+                        `${email}\n` +
+                        `${contrasenia}\n` +
+                        `${dni}\n` +
+                        `${telefono}\n` +
+                        `${nombrecompania}\n` +
+                        `${direccioncompania}\n` +
+                        `${lugar}\n` +
+                        `${nominacioncargo}\n` +
+                        `${fechainicio}\n` +
+                        `${fechafinal}\n` +
+                        `${institucion}\n`;
+
+                    doc.text(`Historial de cambios para el contribuyente`, 20, 20);
+                    doc.text(cambiosRealizados, 20, 30);
+                    doc.save(`Historico_Persona_.pdf`);
+                }
+                const btnGenerarHistorico = document.getElementById('btn-generar-historico');
+                btnGenerarHistorico.addEventListener('click', generarHistorico);
+                mostrarNumeroPersona();
+            </script>
+
+            <script>
+                window.onload = function() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const constituyenteNumber = urlParams.get('constituyente');
+                    document.getElementById('constituyenteTitle').textContent = `Información del Constituyente ${constituyenteNumber}`;
+                };
+            </script>
+        </div>
+    </body>
+
+    <script>
+        async function obtenerEmpleadores(empleadoresId) {
+            try {
+                const response = await fetch(`/api/empleadores/${empleadoresId}`);
+                const data = await response.json();
+        
+                document.querySelector('.nombres').innerHTML = `Nombres: <span class="text-primary">${data.nombres}</span>`;
+                document.querySelector('.apellidos').innerHTML = `Apellidos: <span class="text-primary">${data.apellidos}</span>`;
+                document.querySelector('.email').innerHTML = `Email: <span class="text-primary">${data.email}</span>`;
+                document.querySelector('.contrasenia').innerHTML = `Contraseña: <span class="text-primary">${data.contrasenia}</span>`;
+                document.querySelector('.dni').innerHTML = `DNI: <span class="text-primary">${data.dni}</span>`;
+                document.querySelector('.telefono').innerHTML = `Teléfono: <span class="text-primary">${data.telefono}</span>`;
+                document.querySelector('.nombrecompania').innerHTML = `Nombre de Compañía: <span class="text-primary">${data.nombrecompania}</span>`;
+                document.querySelector('.direccioncompania').innerHTML = `Dirección de Compañía: <span class="text-primary">${data.direccioncompania}</span>`;
+                document.querySelector('.lugar').innerHTML = `Lugar: <span class="text-primary">${data.lugar}</span>`;
+                document.querySelector('.nominacioncargo').innerHTML = `Nominación / Cargo: <span class="text-primary">${data.nominacioncargo}</span>`;
+                document.querySelector('.fechainicio').innerHTML = `Fecha de Inicio: <span class="text-primary">${data.fechainicio}</span>`;
+                document.querySelector('.fechafinal').innerHTML = `Fecha Final: <span class="text-primary">${data.fechafinal}</span>`;
+                document.querySelector('.institucion').innerHTML = `Institución: <span class="text-primary">${data.institucion}</span>`;
+            } catch (error) {
+                console.error('Error al obtener los detalles:', error);
+            }
+        }
+    
+        window.addEventListener('load', () => {
+            const empleadoresId = '64d04a29e2d9531ffe6dc481'; 
+            obtenerEmpleadores(empleadoresId);
+        });
+    </script>
+</html>

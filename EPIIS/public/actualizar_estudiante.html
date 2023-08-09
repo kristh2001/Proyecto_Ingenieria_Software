@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
+  <style>
+    body {
+      background-color: #090C46;
+    }
+    .left-section, .right-section {
+      background-color: #F4C31D;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .d-flex.align-items-center {
+      min-height: 100vh;
+    }
+
+    .modal-content.success {
+      background-color: #28a745;
+      text-align: center;
+    }
+
+    .modal-content.error {
+      background-color: #dc3545;
+      text-align: center;
+    }
+    .modal-header, .modal-footer {
+      border: none;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <!-- Parte Izquierda -->
+      <div class="col-md-6">
+        <div class="left-section">
+          <h3>ACTUALIZACION DE ESTUDIANTE</h3>
+          <form onsubmit="return validarFormulario();">
+            <div class="form-group">
+              <label for="firstName">Nombres:</label>
+              <input type="text" class="form-control" id="firstName" >
+            </div>
+            <div class="form-group">
+              <label for="lastName">Apellidos:</label>
+              <input type="text" class="form-control" id="lastName" >
+            </div>
+            <div class="form-group">
+              <label for="Codigo">Codigo:</label>
+              <input type="text" class="form-control" id="Codigo" >
+            </div>
+            <div class="form-group">
+              <label for="Semestre">Semestre:</label>
+              <input type="text" class="form-control" id="Semestre" >
+            </div>
+              <div class="form-group">
+              <label for="Creditos">Creditos:</label>
+              <input type="text" class="form-control" id="Creditos" >
+            </div>
+            <div class="form-group">
+              <label for="Email">Email:</label>
+              <input type="text" class="form-control" id="Email" >
+            </div>
+            <div class="form-group">
+              <label for="Contraseña">Contraseña:</label>
+              <input type="text" class="form-control" id="Contraseña" >
+            </div>
+            <div class="form-group">
+              <label for="Direccion">Direccion:</label>
+              <input type="text" class="form-control" id="Direccion" >
+            </div>
+            <div class="form-group">
+              <label for="Numero_Telefono">Numero de Telefono:</label>
+              <input type="email" class="form-control" id="Numero_Telefono" >
+            </div>
+            <div class="form-group">
+              <label for="gender">Género:</label>
+              <select class="form-control" id="gender">
+                <option selected>Seleccione su género</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="trainingData">Data de Capacitación:</label>
+              <input type="text" class="form-control" id="trainingData">
+            </div>
+            <div class="form-group">
+              <label for="dni">dni:</label>
+              <input type="text" class="form-control" id="dni" >
+            </div>
+            <div class="form-group">
+              <label for="Fecha_Nacimiento">Fecha de Nacimiento:</label>
+              <input type="text" class="form-control" id="Fecha_Nacimiento" >
+            </div>
+            <div class="form-group">
+              <label for="Colegio_Procedencia">Colegio de Procedencia:</label>
+              <input type="text" class="form-control" id="Colegio_Procedencia" >
+            </div>
+            <hr size="8px" color="black" />
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#idiomaModal">Idioma</button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#practicaModal">Práctica</button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#Grado_académicoModal">Grado académico</button>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Parte Derecha -->
+      <div class="col-md-6">
+        <div class="right-section text-center">
+          <div class="d-flex justify-content-between" style="background-color: #F4C31D; padding: 20px; border-radius: 10px;">
+            <!-- Inserta la segunda imagen aquí -->
+            <div class="mx-auto text-center">
+              <img src="../images/images.jpg" alt="Logo de la carrera" class="img-fluid rounded-circle" style="max-width: 150px;">
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" onclick="validarFormulario();">Registrar Información</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content success">
+        <div class="modal-body">
+          ¡Información guardada con éxito!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content error">
+        <div class="modal-body">
+          ¡Error al guardar la información!
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal para el botón "Idioma" -->
+<div class="modal fade" id="idiomaModal" tabindex="-1" role="dialog" aria-labelledby="idiomaModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: #F4C31D;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="idiomaModalLabel">Agregar Idioma</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <!-- Contenido del formulario aquí -->
+          <form onsubmit="return validarFormulario();">
+            <div class="form-group">
+              <label for="Nivel">Nivel del Idioma:</label>
+              <input type="text" class="form-control" id="Nivel">
+            </div>
+            <div class="form-group">
+              <label for="Institucion">Institución donde Estudia:</label>
+              <input type="text" class="form-control" id="Institucion">
+            </div>
+            <div class="form-group">
+              <label for="Idioma">Idioma:</label>
+              <input type="text" class="form-control" id="Idioma">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <!-- Puedes agregar botones adicionales si es necesario -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para el botón "Grado académico" -->
+<div class="modal fade" id="Grado_académicoModal" tabindex="-1" role="dialog" aria-labelledby="Grado_académicoModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: #F4C31D;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Grado_académicoModal">Grado académico</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <!-- Contenido del formulario aquí -->
+          <form onsubmit="return validarFormulario();">
+            <div class="form-group">
+              <label for="Fecha_Graduacion">Fecha de Graduacion:</label>
+              <input type="text" class="form-control" id="Fecha_Graduacion">
+            </div>
+            <div class="form-group">
+              <label for="Nominacion_Grado">Nominacion de Grado:</label>
+              <input type="text" class="form-control" id="Nominacion_Grado">
+            </div>
+            <div class="form-group">
+              <label for="Especialidad">Especialidad:</label>
+              <input type="text" class="form-control" id="Especialidad">
+            </div>
+            <div class="form-group">
+              <label for="Institucion_">Institucion:</label>
+              <input type="text" class="form-control" id="Institucion_">
+            </div>
+            <div class="form-group">
+              <label for="Pais">Pais:</label>
+              <input type="text" class="form-control" id="Pais">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal para el botón "Práctica" -->
+<div class="modal fade" id="practicaModal" tabindex="-1" role="dialog" aria-labelledby="practicaModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: #F4C31D;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="practicaModalLabel">Prácticas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <!-- Contenido del formulario aquí -->
+          <form onsubmit="return validarFormulario();">
+            <div class="form-group">
+              <label for="Lugar">Lugar:</label>
+              <input type="text" class="form-control" id="Lugar">
+            </div>
+            <div class="form-group">
+              <label for="Institucion_1">Institución:</label>
+              <input type="text" class="form-control" id="Institucion_1">
+            </div>
+            <div class="form-group">
+              <label for="Duracion">Duración:</label>
+              <input type="text" class="form-control" id="Duracion">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>     
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function validarFormulario() {
+      // Mostrar la ventana de confirmación
+      if (confirm('¿Seguro que desea guardar los cambios?')) {
+        // Si el usuario hace clic en "Aceptar", mostrar el modal de éxito
+        $('#successModal').modal('show');
+        return true;
+      } else {
+        // Si el usuario hace clic en "Cancelar", no guardar los cambios
+        return false;
+      }
+    }
+          // Función para cargar datos desde la base de datos y mostrarlos en un modal
+      function cargarDatosModal(url, modalId) {
+        $.get(url, function (data) {
+          const modal = $(modalId);
+          const modalBody = modal.find('.modal-body');
+          modalBody.empty();
+          
+          // Construir el contenido del modal con los datos recuperados
+          data.forEach(function (item) {
+            const row = $('<div class="row"></div>');
+            Object.keys(item).forEach(function (key) {
+              const col = $('<div class="col">' + key + ': ' + item[key] + '</div>');
+              row.append(col);
+            });
+            modalBody.append(row);
+          });
+          
+          modal.modal('show');
+        });
+      }
+        // Evento para cargar datos cuando se abre el modal
+        $('#idiomaModal').on('show.bs.modal', function () {
+          const url = '/api/Idioma'; // Cambia la ruta según la configuración de tu servidor
+          const modalId = '#idiomaModal'; // Cambia el ID del modal según tus definiciones
+          cargarDatosModal(url, modalId);
+        });
+        // Evento para cargar datos cuando se abre el modal
+      $('#practicaModal').on('show.bs.modal', function () {
+        const url = '/api/Practica'; // Cambia la ruta según la configuración de tu servidor
+        const modalId = '#practicaModal'; // Cambia el ID del modal según tus definiciones
+        cargarDatosModal(url, modalId);
+      });
+          // Evento para cargar datos cuando se abre el modal
+      $('#Grado_académicoModal').on('show.bs.modal', function () {
+        const url = '/api/GradoAcademico'; // Cambia la ruta según la configuración de tu servidor
+        const modalId = '#Grado_académicoModal'; // Cambia el ID del modal según tus definiciones
+        cargarDatosModal(url, modalId);
+      });
+  </script>
+</body>
+</html>
+

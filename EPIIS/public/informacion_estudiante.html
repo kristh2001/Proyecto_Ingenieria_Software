@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información del Constituyente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: #090C46;">
+    <div class="container mt-5">
+        <h1 class="text-center text-white" id="constituyenteTitle">Información del Constituyente</h1>
+        <div class="row mt-4">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark nombres">Nombres:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark apellidos">Apellidos:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark dni">DNI:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark genero">Género:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark codigo">Código:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark semestre">Semestre:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark creditos">Créditos:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark email">Email:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark direccion">Dirección:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark telefono">Número Telefónico:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark fecha_nacimiento">Fecha de Nacimiento:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark colegio_procedencia">Colegio de Procedencia:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 text-dark contrasenia">Contraseña:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 text-right">
+                <button id="btn-generar-historico" class="btn btn-danger">Generar histórico</button>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script>
+            window.jsPDF = window.jspdf.jsPDF;
+            function generarHistorico() {
+                const doc = new jsPDF();
+                // const numeroPersona = obtenerNumeroPersona();
+                const nombres = "Juan";
+                const apellidos = "Pérez";
+                const dni = "12345678";
+                const Genero = "masculino";
+                const Codigo = "124132";
+                const Semestre = "4to";
+                const Creditos = "12";
+                const Email = "1241@unsaac";
+                const Direccion = "larapa";
+                const NumeroTelefonico = "95218536";
+                const FechaNacimiento = "02/02/21";
+                const ColegioProcedencia = "san juan";
+                const Contraseña = "12345";
+
+                const contenidoPDF=`
+                    Historial de cambios para el contribuyente:
+
+                    Nombres: ${nombres}
+                    Apellidos: ${apellidos}
+                    DNI:${dni}
+                    Género: ${Genero}
+                    Código: ${Codigo}
+                    Semestre: ${Semestre}
+                    Créditos: ${Creditos}
+                    Email: ${Email}
+                    Dirección: ${Direccion}
+                    Número Telefónico: ${NumeroTelefonico}
+                    Fecha de Nacimiento: ${FechaNacimiento}
+                    Colegio de Procedencia: ${ColegioProcedencia}
+                    Contraseña: ${Contraseña}
+                `;
+                doc.text(contenidoPDF, 20, 30);
+                doc.save(`Historico_Persona_.pdf`);
+            }
+            const btnGenerarHistorico = document.getElementById('btn-generar-historico');
+            btnGenerarHistorico.addEventListener('click', generarHistorico);
+
+            mostrarNumeroPersona();
+        </script>
+        <script>
+            window.onload = function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const constituyenteNumber = urlParams.get('constituyente');
+                document.getElementById('constituyenteTitle').textContent = `Información del Constituyente ${constituyenteNumber}`;
+            };
+        </script>
+    </div>
+</body>
+<script>
+    async function obtenerDetalles(estudianteId) {
+      try {
+        const response = await fetch(`/api/estudiantes/${estudianteId}`);
+        const data = await response.json();
+
+        document.querySelector('.nombres').innerHTML = `Nombres: <span class="text-primary">${data.nombres}</span>`;
+        document.querySelector('.apellidos').innerHTML = `Apellidos: <span class="text-primary">${data.apellidos}</span>`;
+        document.querySelector('.codigo').innerHTML = `Código: <span class="text-primary">${data.codigo}</span>`;
+        document.querySelector('.semestre').innerHTML = `Semestre: <span class="text-primary">${data.semestre}</span>`;
+        document.querySelector('.creditos').innerHTML = `Créditos: <span class="text-primary">${data.creditos}</span>`;
+        document.querySelector('.email').innerHTML = `Email: <span class="text-primary">${data.email}</span>`;
+        document.querySelector('.contrasenia').innerHTML = `Contraseña: <span class="text-primary">${data.contrasenia}</span>`;
+        document.querySelector('.direccion').innerHTML = `Dirección: <span class="text-primary">${data.direccion}</span>`;
+        document.querySelector('.numero_telefonico').innerHTML = `Número de Teléfono: <span class="text-primary">${data.numero_telefonico}</span>`;
+        document.querySelector('.genero').innerHTML = `Género: <span class="text-primary">${data.genero}</span>`;
+        document.querySelector('.dni').innerHTML = `DNI: <span class="text-primary">${data.dni}</span>`;
+        document.querySelector('.fecha_nacimiento').innerHTML = `Fecha de Nacimiento: <span class="text-primary">${data.fecha_nacimiento}</span>`;
+        document.querySelector('.colegio_procedencia').innerHTML = `Colegio de Procedencia: <span class="text-primary">${data.colegio_procedencia}</span>`;
+
+      } catch (error) {
+        console.error('Error al obtener los detalles:', error);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      const estudianteId= '64d1d14e51e3c1e44e7d7e3b'; 
+      obtenerDetalles(estudianteId);
+    });
+  </script>
+</html>

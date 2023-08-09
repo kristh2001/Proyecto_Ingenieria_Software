@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Estudiante</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
+  <style>
+    body {
+      background-color: #090C46; 
+    }
+    .left-section, .right-section {
+      background-color: #F4C31D; 
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .d-flex.align-items-center {
+      min-height: 100vh;
+    }
+
+    /* Estilos personalizados para el modal de éxito */
+    .modal-content.success {
+      background-color: #28a745;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    /* Estilos personalizados para el modal de ERROR*/
+    .modal-content.error {
+      background-color: #dc3545;
+      color: #ffffff;
+      text-align: center;
+    }
+    .modal-header, .modal-footer {
+      border: none;
+    }
+
+    /* Estilos para el botón "Registrar" */
+    .btn-verde-claro {
+      background-color: #a5d6a7; 
+      color: #000000;
+      border: none;
+    }
+    .btn-verde-claro:hover {
+      background-color: #59ca5d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <!-- Parte Izquierda -->
+      <div class="col-md-6">
+        <div class="left-section">
+          <h3>REGISTRO DE ESTUDIANTE</h3>
+          <form onsubmit="return validarFormulario();">
+            <div class="form-group">
+              <label for="firstName">Nombres:</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Ingresa tus nombres">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Apellidos:</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Ingresa tus apellidos">
+            </div>
+            <div class="form-group">
+                <label for="codigo">Codigo:</label>
+                <input type="text" class="form-control" id="codigo" placeholder="Ingresa tu codigo">
+            </div>
+            <div class="form-group">
+                <label for="semestre">Semestre:</label>
+                <input type="text" class="form-control" id="semestre" placeholder="Ingresa tu semestre">
+            </div>
+            <div class="form-group">
+                <label for="credito">Credito:</label>
+                <input type="text" class="form-control" id="credito" placeholder="Ingresa tus creditos">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo">
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña:</label>
+              <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Direccion:</label>
+                <input type="text" class="form-control" id="direccion" placeholder="Ingresa tu direccion">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Telefono:</label>
+                <input type="text" class="form-control" id="telefono" placeholder="Ingresa tu telefono">
+            </div>
+            <div class="form-group">
+                <label for="genero">Genero:</label>
+                <select class="form-control" id="genero">
+                  <option selected>Seleccione el genero</option>
+                  <option value="empleador">Masculino</option>
+                  <option value="docente">Femenino</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dni">DNI:</label>
+                <input type="text" class="form-control" id="dni" placeholder="Ingresa tu DNI">
+            </div>
+            <div class="form-group">
+                <label for="fnacimiento">Fecha de Nacimiento:</label>
+                <input type="text" class="form-control" id="fnacimiento" placeholder="Ingresa tu fecha de Nacimiento">
+            </div>
+            <div class="form-group">
+                <label for="cprocedencia">Colegio de procedencia:</label>
+                <input type="text" class="form-control" id="cprocedencia" placeholder="Ingresa tu colegio de procedencia">
+            </div>
+            <br><br>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="acceptTerms">
+              <label class="form-check-label" for="acceptTerms">Aceptar términos y condiciones</label>
+            </div>
+        </div>
+      </div>
+
+      <!-- Parte Derecha -->
+      <div class="col-md-6">
+        <div class="right-section text-center">
+         <br><br>
+          <img src="../images/images.jpg" alt="Logo de la carrera" class="img-fluid rounded-circle" style="max-width: 200px;">
+          <br><br>
+          <div class="text-center">
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#idiomaModal">Idioma</button>
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#practicaModal">Práctica</button>
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#gradoModal">Grado Académico</button>
+          </div>
+          <br><br>
+          <button type="button" class="btn btn-verde-claro btn-block" onclick="validarFormulario();">Registrar Información</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de éxito -->
+  <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content success">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">ÉXITO</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+        </div>
+        <div class="modal-body">
+          ¡Información guardada con éxito!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de error -->
+  <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content error">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">ERROR</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+        </div>
+        <div class="modal-body">
+          ¡Error al guardar la información!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Idioma -->
+  <div class="modal fade" id="idiomaModal" tabindex="-1" role="dialog" aria-labelledby="idiomaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="idiomaModalLabel">Información de Idioma</h5>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario para registrar información de idioma -->
+          <form>
+            <div class="form-group">
+                <label for="lugar">Lugar</label>
+                <input type="text" class="form-control" id="lugar">
+              </div>
+            <div class="form-group">
+              <label for="nivel">Nivel</label>
+              <input type="text" class="form-control" id="nivel">
+            </div>
+            <div class="form-group">
+              <label for="institucion">Institución</label>
+              <input type="text" class="form-control" id="institucion">
+            </div>
+            <div class="form-group">
+              <label for="idioma">Nombre Idioma</label>
+              <input type="text" class="form-control" id="idioma">
+            </div>
+            <div class="form-group">
+                <label for="dni_de">DNI Docente/Estudiante</label>
+                <input type="text" class="form-control" id="dni_de">
+              </div>
+          </form>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-danger mx-auto" data-dismiss="modal">Volver</button>
+        </div>    
+        <br><br>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Práctica -->
+<div class="modal fade" id="practicaModal" tabindex="-1" role="dialog" aria-labelledby="practicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="practicaModalLabel">Información de Práctica</h5>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario para registrar información de práctica -->
+          <form>
+            <div class="form-group">
+              <label for="lugar">Lugar</label>
+              <input type="text" class="form-control" id="lugar">
+            </div>
+            <div class="form-group">
+              <label for="institution">Institución</label>
+              <input type="text" class="form-control" id="institution">
+            </div>
+            <div class="form-group">
+              <label for="duracion">Duración</label>
+              <input type="text" class="form-control" id="duracion">
+            </div>
+            <div class="form-group">
+              <label for="docente_estudiante">DNI Docente/Estudiante</label>
+              <input type="text" class="form-control" id="docente_estudiante">
+            </div>
+          </form>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-danger mx-auto" data-dismiss="modal">Volver</button>
+        </div>
+        <br><br>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Grado -->
+<div class="modal fade" id="gradoModal" tabindex="-1" role="dialog" aria-labelledby="gradoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="gradoModalLabel">Información de Grado</h5>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario para registrar información de grado -->
+          <form>
+            <div class="form-group">
+              <label for="fecha_graduacion">Fecha de Graduación</label>
+              <input type="date" class="form-control" id="fecha_graduacion">
+            </div>
+            <div class="form-group">
+              <label for="nominacion_grado">Nominación de Grado</label>
+              <input type="text" class="form-control" id="nominacion_grado">
+            </div>
+            <div class="form-group">
+              <label for="dni_docente_estudiante">DNI Docente/Estudiante</label>
+              <input type="text" class="form-control" id="dni_docente_estudiante">
+            </div>
+            <div class="form-group">
+              <label for="especialidad">Especialidad</label>
+              <input type="text" class="form-control" id="especialidad">
+            </div>
+            <div class="form-group">
+              <label for="institucion_grado">Institución</label>
+              <input type="text" class="form-control" id="institucion_grado">
+            </div>
+            <div class="form-group">
+              <label for="pais">País</label>
+              <input type="text" class="form-control" id="pais">
+            </div>
+          </form>
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-danger mx-auto" data-dismiss="modal">Volver</button>
+        </div>
+        <br><br>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Enlaza jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function validarFormulario() {
+      var acceptTermsCheckbox = document.getElementById('acceptTerms');
+      if (!acceptTermsCheckbox.checked) {
+        $('#errorModal').modal('show');
+        return false;
+      } else {
+        $('#successModal').modal('show');
+        return true;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Información del Constituyente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: #090C46;">
+    <div class="container mt-5">
+        <h1 class="text-center text-white" id="constituyenteTitle">Información del Constituyente</h1>
+        <div class="row mt-4">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Nombres:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Apellidos:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">DNI:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Género:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Código:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Créditos:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Email:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Dirección:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Número Telefónico:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Fecha de Nacimiento:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Colegio de Procedencia:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Data Practica PreProfesional:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">   
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Data Idioma Extranjero:</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0">Data Grado Academico:</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 text-right">
+                <button id="btn-generar-historico" class="btn btn-danger">Generar histórico</button>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script>
+            window.jsPDF = window.jspdf.jsPDF;
+            function generarHistorico() {
+                const doc = new jsPDF();
+                const numeroPersona = obtenerNumeroPersona();
+                const cambiosRealizados = "Se realizaron cambios en los datos del contribuyente.";
+                doc.text(`Historial de cambios para el contribuyente`, 20, 20);
+                doc.text(cambiosRealizados, 20, 30);
+                doc.save(`Historico_Persona_.pdf`);
+            }
+            const btnGenerarHistorico = document.getElementById('btn-generar-historico');
+            btnGenerarHistorico.addEventListener('click', generarHistorico);
+
+            mostrarNumeroPersona();
+        </script>
+        <script>
+            window.onload = function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const constituyenteNumber = urlParams.get('constituyente');
+                document.getElementById('constituyenteTitle').textContent = `Información del Constituyente ${constituyenteNumber}`;
+            };
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
+  <style>
+    body {
+      background-color: #090C46;
+    }
+    .left-section, .right-section {
+      background-color: #F4C31D;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .d-flex.align-items-center {
+      min-height: 100vh;
+    }
+
+    .modal-content.success {
+      background-color: #28a745;
+      text-align: center;
+    }
+
+    .modal-content.error {
+      background-color: #dc3545;
+      text-align: center;
+    }
+    .modal-header, .modal-footer {
+      border: none;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <!-- Parte Izquierda -->
+      <div class="col-md-6">
+        <div class="left-section">
+          <h3>ACTUALIZACION DE EMPLEADOR</h3>
+          <form onsubmit="return validarFormulario();">
+            <div class="form-group">
+              <label for="firstName">Nombres:</label>
+              <input type="text" class="form-control" id="firstName" >
+            </div>
+            <div class="form-group">
+              <label for="lastName">Apellidos:</label>
+              <input type="text" class="form-control" id="lastName" >
+            </div>
+            <div class="form-group">
+              <label for="Email">Email:</label>
+              <input type="text" class="form-control" id="Email" >
+            </div>
+            <div class="form-group">
+              <label for="Contraseña">Contraseña:</label>
+              <input type="text" class="form-control" id="Contraseña" >
+            </div>
+            <div class="form-group">
+                <label for="dni">dni:</label>
+                <input type="text" class="form-control" id="dni" >
+            </div>
+            <div class="form-group">
+              <label for="Numero_Telefonico">Numero Telefonico:</label>
+              <input type="text" class="form-control" id="Numero_Telefonico" >
+            </div>
+            <div class="form-group">
+                <label for="Nombre_Compania">Nombre de la Compania:</label>
+                <input type="text" class="form-control" id="Nombre_Compania" >
+              </div>
+            <div class="form-group">
+                <label for="Direccion_Compania">Direccion de la Compañia:</label>
+                <input type="text" class="form-control" id="Direccion_Compania" >
+            </div>
+            <div class="form-group">
+                <label for="Lugar_1">Lugar:</label>
+                <input type="text" class="form-control" id="Lugar_1" >
+            </div>
+            <hr size="8px" color="black" />
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal" data-target="#cargoModal">Cargo</button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal" data-target="#ofertaModal">Ofecta Laboral</button>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Parte Derecha -->
+      <div class="col-md-6">
+        <div class="right-section text-center">
+          <div class="d-flex justify-content-between" style="background-color: #F4C31D; padding: 20px; border-radius: 10px;">
+            <!-- Inserta la segunda imagen aquí -->
+            <div class="mx-auto text-center">
+              <img src="../images/images.jpg" alt="Logo de la carrera" class="img-fluid rounded-circle" style="max-width: 150px;">
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" onclick="validarFormulario();">Registrar Información</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content success">
+        <div class="modal-body">
+          ¡Información guardada con éxito!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content error">
+        <div class="modal-body">
+          ¡Error al guardar la información!
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal para el botón "Cargo" -->
+<div class="modal fade" id="cargoModal" tabindex="-1" role="dialog" aria-labelledby="cargoModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: #F4C31D;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cargoModalLabel">Mostrar Cargo</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <!-- Contenido del formulario aquí -->
+          <form onsubmit="return validarFormulario();">
+            <div class="form-group">
+              <label for="Dominacion_Cargo">Dominacion Cargo</label>
+              <input type="text" class="form-control" id="Dominacion_Cargo">
+            </div>
+            <div class="form-group">
+              <label for="Fecha_Inicio">Fecha Inicio</label>
+              <input type="date" class="form-control" id="Fecha_Inicio">
+            </div>
+            <div class="form-group">
+              <label for="Fecha_Finalizacion">Fecha Finalizacion</label>
+              <input type="date" class="form-control" id="Fecha_Finalizacion">
+            </div>
+            <div class="form-group">
+              <label for="DNI_Docente_Empleador">DNI Docente Empleador:</label>
+              <input type="text" class="form-control" id="DNI_Docente_Empleador">
+            </div>
+            <div class="form-group">
+              <label for="Lugar">Lugar:</label>
+              <input type="text" class="form-control" id="Lugar">
+            </div>
+            <div class="form-group">
+              <label for="Institucion">Institucion:</label>
+              <input type="text" class="form-control" id="Institucion">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <!-- Puedes agregar botones adicionales si es necesario -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para el botón "Oferta Laboral" -->
+<div class="modal fade" id="ofertaModal" tabindex="-1" role="dialog" aria-labelledby="ofertaModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color: #F4C31D;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ofertaModal">Oferta Laboral</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <!-- Contenido del formulario aquí -->
+          <form onsubmit="return validarFormulario();">
+            <div class="form-group">
+              <label for="DNI_Empleador">DNI Empleador:</label>
+              <input type="text" class="form-control" id="DNI_Empleador">
+            </div>
+            <div class="form-group">
+              <label for="FileName">File Name:</label>
+              <input type="text" class="form-control" id="FileName">
+            </div>
+            <div class="form-group">
+              <label for="fecha">Fecha</label>
+              <input type="date" class="form-control" id="fecha">
+            </div>
+          </form>
+        </div>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function validarFormulario() {
+      // Mostrar la ventana de confirmación
+      if (confirm('¿Seguro que desea guardar los cambios?')) {
+        // Si el usuario hace clic en "Aceptar", mostrar el modal de éxito
+        $('#successModal').modal('show');
+        return true;
+      } else {
+        // Si el usuario hace clic en "Cancelar", no guardar los cambios
+        return false;
+      }
+    }
+      // Función para cargar datos desde la base de datos y mostrarlos en un modal
+      function cargarDatosModal(url, modalId) {
+        $.get(url, function (data) {
+          const modal = $(modalId);
+          const modalBody = modal.find('.modal-body');
+          modalBody.empty();
+          
+          // Construir el contenido del modal con los datos recuperados
+          data.forEach(function (item) {
+            const row = $('<div class="row"></div>');
+            Object.keys(item).forEach(function (key) {
+              const col = $('<div class="col">' + key + ': ' + item[key] + '</div>');
+              row.append(col);
+            });
+            modalBody.append(row);
+          });
+          
+          modal.modal('show');
+        });
+      }
+        // Evento para cargar datos cuando se abre el modal
+        $('#cargoModal').on('show.bs.modal', function () {
+          const url = '/api/cargo'; // Cambia la ruta según la configuración de tu servidor
+          const modalId = '#cargoModal'; // Cambia el ID del modal según tus definiciones
+          cargarDatosModal(url, modalId);
+        });
+        // Evento para cargar datos cuando se abre el modal
+      $('#ofertaModal').on('show.bs.modal', function () {
+        const url = '/api/Oferta_Laboral'; // Cambia la ruta según la configuración de tu servidor
+        const modalId = '#ofertaModal'; // Cambia el ID del modal según tus definiciones
+        cargarDatosModal(url, modalId);
+      });
+  </script>
+</body>
+</html>

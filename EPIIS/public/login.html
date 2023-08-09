@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<style>
+
+  /* Ocultar el formulario inicialmente */
+  #miFormulario1 {
+            display: none;
+        }
+
+        /* Ocultar el formulario inicialmente */
+  #miFormulario2 {
+            display: none;
+        }
+
+
+  body {
+    background-color: #090C46;
+  }
+  .left-section, .right-section {
+    background-color: #F4C31D;
+    padding: 10px;
+    border-radius: 7px;
+  }
+
+  .form02 {
+    background-color: #1f0dc0;
+    padding: 10px;
+    border-radius: 7px;
+  }
+  .d-flex.align-items-center {
+    min-height: 100vh;
+  }
+
+  .modal-content.success {
+    background-color: #28a745;
+    text-align: center;
+  }
+
+  .modal-content.error {
+    background-color: #dc3545;
+    text-align: center;
+  }
+  .modal-header, .modal-footer {
+    border: none;
+  }
+</style>
+
+<body>
+  <!-- Parte Cabecera -->
+    <div class="">
+        <nav class="navbar navbar-expand-lg bg-body-left-section">
+            <div class="container-fluid right-section">
+              <a class="navbar-brand" href="#">Sistema de Gestión de los Constituyentes de la EPIIS</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button class="btn btn-outline-primary" onclick="mostrarFormulario1()">Administrador</button>
+                    <button class="btn btn-outline-primary" onclick="mostrarFormulario2()">Usuario</button>
+                    <a href="registrar.html" class="btn btn-outline-primary">Registrar</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+      </div>
+
+
+  <!-- Parte Cuerpo -->
+  <div class="container">
+    <div class="row d-flex align-items-center">
+
+
+      <!-- Parte Izquierda -->
+      <div class="col-md-6">
+        <div class=" ">
+          <<form id="miFormulario1">
+            <div class="right-section">
+                <div class="mb-3">
+                  <div class="d-flex.align-items-center text-center">
+                    <img src="../images/logo01.jpg" class="img-fluid rounded-circle text-center" alt="logo01.jpg" style="max-width: 200px;">
+                  </div>
+                    <label for="exampleInputEmail1" class="form-label">Correo Institucional</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Ingrese el correo institucional de la UNSAAC.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="d-grid gap-2 d-md-block">
+                    <a href="principal.html" class="btn btn-primary">Registrar</a>
+                  </div>
+              </div>
+          </form>
+
+          <form id="miFormulario2">
+            <div class="form02">
+                <div class="mb-3">
+                  <div class="d-flex.align-items-center text-center">
+                    <img src="../images/logo02.jpg" class="img-fluid rounded-circle text-center" alt="logo02.jpg" style="max-width: 200px;">
+                  </div>
+                    <label for="exampleInputEmail1" class="text-light form-label">Correo Institucional</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="text-light form-text">Ingrese el correo institucional de la UNSAAC.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="text-light form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="text-light d-grid gap-2 d-md-block">
+                    <a href="principal.html" class="btn btn-primary">Registrar</a>
+                  </div>
+              </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Parte Derecha -->
+      <div class="col-md-6">
+        <div class=" text-center">
+          <div class="d-grid gap-2 d-md-block">
+            <img src="../images/images.jpg" class="img-fluid rounded-circle" alt="images.jpg">
+            <a class="text-light navbar-brand" href="#">Escuela Profesional de Ingenieria Informatica y de Sistemas</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Función para mostrar el formulario al hacer clic en el botón
+    function mostrarFormulario1() {
+        document.getElementById("miFormulario1").style.display = "block";
+
+        var formulario = document.getElementById("miFormulario2");
+            if (formulario.style.display === "none") {
+                formulario.style.display = "block";
+            } else {
+                formulario.style.display = "none";
+            }
+    }
+</script>
+
+<script>
+  // Función para mostrar el formulario al hacer clic en el botón
+  function mostrarFormulario2() {
+      document.getElementById("miFormulario2").style.display = "block";
+
+      var formulario = document.getElementById("miFormulario1");
+            if (formulario.style.display === "none") {
+                formulario.style.display = "block";
+            } else {
+                formulario.style.display = "none";
+            }
+  }
+</script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

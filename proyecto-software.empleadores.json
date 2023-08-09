@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "64d04a29e2d9531ffe6dc481"
+  },
+  "nombres": "Juan",
+  "apellidos": "Pérez",
+  "email": "juan@example.com",
+  "contrasenia": "secretpassword",
+  "dni": "12345678",
+  "telefono": "987654321",
+  "nombrecompania": "Compañía XYZ",
+  "direccioncompania": "Calle Falsa 123",
+  "lugar": "Ciudad ABC",
+  "nominacioncargo": "Gerente de Ventas",
+  "fechainicio": "2023-08-01",
+  "fechafinal": "2023-12-31",
+  "institucion": "Universidad ABC"
+},
+{
+  "_id": {
+    "$oid": "64d04a52e2d9531ffe6dc483"
+  },
+  "nombres": "María",
+  "apellidos": "González",
+  "email": "maria@example.com",
+  "contrasenia": "secure123",
+  "dni": "98765432",
+  "telefono": "123456789",
+  "nombrecompania": "Empresa ABC",
+  "direccioncompania": "Avenida Principal 456",
+  "lugar": "Ciudad XYZ",
+  "nominacioncargo": "Directora de Marketing",
+  "fechainicio": "2023-07-15",
+  "fechafinal": "2023-12-15",
+  "institucion": "Universidad XYZ"
+},
+{
+  "_id": {
+    "$oid": "64d04a52e2d9531ffe6dc484"
+  },
+  "nombres": "Carlos",
+  "apellidos": "Martínez",
+  "email": "carlos@example.com",
+  "contrasenia": "mysecretpass",
+  "dni": "54321678",
+  "telefono": "9876543210",
+  "nombrecompania": "Compañía 123",
+  "direccioncompania": "Calle Real 789",
+  "lugar": "Ciudad QWE",
+  "nominacioncargo": "Analista Financiero",
+  "fechainicio": "2023-06-01",
+  "fechafinal": "2023-11-30",
+  "institucion": "Universidad QWE"
+}]

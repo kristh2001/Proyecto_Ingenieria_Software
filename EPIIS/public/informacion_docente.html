@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Información del Constituyente</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body style="background-color: #090c46">
+    <div class="container mt-5">
+      <h1 class="text-center text-white" id="constituyenteTitle">
+        Información del Constituyente
+      </h1>
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 nombres">Nombres:</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 apellidos">Apellidos:</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 genero">Género:</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 direccion">Dirección:</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 dni">DNI:</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 telefono">Número de Teléfono:</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 area">Área:</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 email">Email:</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="bg-warning rounded p-3 mb-3">
+            <p class="font-weight-bold mb-0 contrasenia">Contraseña:</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- -->
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <div class="text-center">
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#tituloAcademicoModal"
+            >
+              Título Académico
+            </button>
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#gradosAcademicoModal"
+            >
+              Grado Académico
+            </button>
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#capacitacionModal"
+            >
+              Capacitación
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Modal para Título Académico -->
+      <div
+        class="modal fade"
+        id="tituloAcademicoModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="tituloAcademicoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="tituloAcademicoModalLabel">
+                Título Académico
+              </h5>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 fechatitulacion">Fecha Titulacion:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 nominaciontitulo">Nominacion Titulo:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 instituciontitulo">Institucion:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 paistitulo">Pais:</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button
+                type="button"
+                class="btn btn-danger mx-auto"
+                data-dismiss="modal"
+              >
+                Volver
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal para Grado Académico -->
+      <div
+        class="modal fade"
+        id="gradosAcademicoModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="gradosAcademicoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="gradosAcademicoModalLabel">
+                Grado Académico
+              </h5>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 fechagraduacion">Fecha Graduacion:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 nominaciongrado">Nominacion Grado:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 especialidad">Especialidad:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 instituciongrado">Institucion:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 paisgrado">Pais:</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button
+                type="button"
+                class="btn btn-danger mx-auto"
+                data-dismiss="modal"
+              >
+                Volver
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal para Capacitacion -->
+      <div
+        class="modal fade"
+        id="capacitacionModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="capacitacionModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="capacitacionModalLabel">
+                Capacitacion
+              </h5>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 denominacion">Denominacion:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 duracion">Duracion:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 institucioncapacitacion">Institucion:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 fechainicio">Fecha de Inicio:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 fechafinal">Fecha de Finalizacion:</p>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="bg-warning rounded p-3 mb-3">
+                    <p class="font-weight-bold mb-0 lugar">Lugar:</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button
+                type="button"
+                class="btn btn-danger mx-auto"
+                data-dismiss="modal"
+              >
+                Volver
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enlaza jQuery y Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <!-- BOTON -->
+      <div class="row mt-4">
+        <div class="col-md-12 text-right">
+          <button id="btn-generar-historico" class="btn btn-danger">
+            Generar histórico
+          </button>
+        </div>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+      <script>
+        window.jsPDF = window.jspdf.jsPDF;
+        function generarHistorico() {
+          const doc = new jsPDF();
+
+          // Obtener los datos del constituyente
+          const nombres = document.querySelector('.nombres').textContent;
+          const apellidos = document.querySelector('.apellidos').textContent;
+          const genero = document.querySelector('.genero').textContent;
+          const direccion = document.querySelector('.direccion').textContent;
+          const dni = document.querySelector('.dni').textContent;
+          const telefono = document.querySelector('.telefono').textContent;
+          const area = document.querySelector('.area').textContent;
+          const email = document.querySelector('.email').textContent;
+          const contrasenia = document.querySelector('.contrasenia').textContent;
+          const fechatitulacion = document.querySelector('.fechatitulacion').textContent;
+          const nominaciontitulo = document.querySelector('.nominaciontitulo').textContent;
+          const instituciontitulo = document.querySelector('.instituciontitulo').textContent;
+          const paistitulo = document.querySelector('.paistitulo').textContent;
+          const fechagraduacion = document.querySelector('.fechagraduacion').textContent;
+          const nominaciongrado = document.querySelector('.nominaciongrado').textContent;
+          const especialidad = document.querySelector('.especialidad').textContent;
+          const instituciongrado = document.querySelector('.instituciongrado').textContent;
+          const paisgrado = document.querySelector('.paisgrado').textContent;
+          const denominacion = document.querySelector('.denominacion').textContent;
+          const duracion = document.querySelector('.duracion').textContent;
+          const institucioncapacitacion = document.querySelector('.institucioncapacitacion').textContent;
+          const fechainicio = document.querySelector('.fechainicio').textContent;
+          const fechafinal = document.querySelector('.fechafinal').textContent;
+          const lugar = document.querySelector('.lugar').textContent;
+
+          const cambiosRealizados =
+            `${nombres}\n` +
+            `${apellidos}\n` +
+            `${genero}\n` +
+            `${direccion}\n` +
+            `${dni}\n` +
+            `${telefono}\n` +
+            `${area}\n` +
+            `${email}\n` +
+            `${contrasenia}\n` +
+            `${fechatitulacion}\n` +
+            `${nominaciontitulo}\n` +
+            `${instituciontitulo}\n` +
+            `${paistitulo}\n` +
+            `${fechagraduacion}\n` +
+            `${nominaciongrado}\n` +
+            `${especialidad}\n` +
+            `${instituciongrado}\n` +
+            `${paisgrado}\n` +
+            `${denominacion}\n` +
+            `${duracion}\n` +
+            `${institucioncapacitacion}\n` +
+            `${fechainicio}\n` +
+            `${fechafinal}\n` +
+            `${lugar}\n`;
+
+          doc.text(`Historial de cambios para el contribuyente`, 20, 20);
+          doc.text(cambiosRealizados, 20, 30);
+          doc.save(`Historico_Persona_.pdf`);
+        }
+        const btnGenerarHistorico = document.getElementById(
+          "btn-generar-historico"
+        );
+        btnGenerarHistorico.addEventListener("click", generarHistorico);
+        mostrarNumeroPersona();
+      </script>
+      <script>
+        window.onload = function () {
+          const urlParams = new URLSearchParams(window.location.search);
+          const constituyenteNumber = urlParams.get("constituyente");
+          document.getElementById(
+            "constituyenteTitle"
+          ).textContent = `Información del Constituyente ${constituyenteNumber}`;
+        };
+      </script>
+    </div>
+    <a href="./principal.html">Paginal principal</a>
+    
+  </body>
+  <script>
+    async function obtenerDetalles(constituyenteId) {
+      try {
+        const response = await fetch(`/api/details/${constituyenteId}`);
+        const data = await response.json();
+
+        document.querySelector('.nombres').innerHTML = `Nombres: <span class="text-primary">${data.nombres}</span>`;
+        document.querySelector('.apellidos').innerHTML = `Apellidos: <span class="text-primary">${data.apellidos}</span>`;
+        document.querySelector('.genero').innerHTML = `Género: <span class="text-primary">${data.genero}</span>`;
+        document.querySelector('.direccion').innerHTML = `Dirección: <span class="text-primary">${data.direccion}</span>`;
+        document.querySelector('.dni').innerHTML = `DNI: <span class="text-primary">${data.dni}</span>`;
+        document.querySelector('.telefono').innerHTML = `Número de Teléfono: <span class="text-primary">${data.telefono}</span>`;
+        document.querySelector('.area').innerHTML = `Área: <span class="text-primary">${data.area}</span>`;
+        document.querySelector('.email').innerHTML = `Email: <span class="text-primary">${data.email}</span>`;
+        document.querySelector('.contrasenia').innerHTML = `Contraseña: <span class="text-primary">${data.contrasenia}</span>`;
+        document.querySelector('.fechatitulacion').innerHTML = `Fecha Titulación: <span class="text-primary">${data.fechatitulacion}</span>`;
+        document.querySelector('.nominaciontitulo').innerHTML = `Nominación Título: <span class="text-primary">${data.nominaciontitulo}</span>`;
+        document.querySelector('.instituciontitulo').innerHTML = `Institución Título: <span class="text-primary">${data.instituciontitulo}</span>`;
+        document.querySelector('.paistitulo').innerHTML = `País Título: <span class="text-primary">${data.paistitulo}</span>`;
+        document.querySelector('.fechagraduacion').innerHTML = `Fecha Graduación: <span class="text-primary">${data.fechagraduacion}</span>`;
+        document.querySelector('.nominaciongrado').innerHTML = `Nominación Grado: <span class="text-primary">${data.nominaciongrado}</span>`;
+        document.querySelector('.especialidad').innerHTML = `Especialidad: <span class="text-primary">${data.especialidad}</span>`;
+        document.querySelector('.instituciongrado').innerHTML = `Institución Grado: <span class="text-primary">${data.instituciongrado}</span>`;
+        document.querySelector('.paisgrado').innerHTML = `País Grado: <span class="text-primary">${data.paisgrado}</span>`;
+        document.querySelector('.denominacion').innerHTML = `Denominación: <span class="text-primary">${data.denominacion}</span>`;
+        document.querySelector('.duracion').innerHTML = `Duración: <span class="text-primary">${data.duracion}</span>`;
+        document.querySelector('.institucioncapacitacion').innerHTML = `Institución Capacitación: <span class="text-primary">${data.institucioncapacitacion}</span>`;
+        document.querySelector('.fechainicio').innerHTML = `Fecha de Inicio: <span class="text-primary">${data.fechainicio}</span>`;
+        document.querySelector('.fechafinal').innerHTML = `Fecha de Finalización: <span class="text-primary">${data.fechafinal}</span>`;
+        document.querySelector('.lugar').innerHTML = `Lugar: <span class="text-primary">${data.lugar}</span>`;
+      } catch (error) {
+        console.error('Error al obtener los detalles:', error);
+      }
+    }
+    window.addEventListener('load', () => {
+      const constituyenteId = '64cf07ff0a0d057833f9b935'; 
+      obtenerDetalles(constituyenteId);
+    });
+  </script>
+</html>

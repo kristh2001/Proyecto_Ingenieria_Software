@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "64d1d14e51e3c1e44e7d7e3b"
+  },
+  "nombres": "Gerson",
+  "apellidos": "García",
+  "codigo": "2023002",
+  "semestre": "3",
+  "creditos": 60,
+  "email": "luis.garcia@example.com",
+  "contrasenia": "clave123",
+  "direccion": "Calle Principal 456",
+  "numero_telefonico": "234-567-8901",
+  "genero": "Masculino",
+  "dni": "34567890",
+  "fecha_nacimiento": {
+    "$date": "2001-05-20T00:00:00.000Z"
+  },
+  "colegio_procedencia": "Colegio XYZ"
+},
+{
+  "_id": {
+    "$oid": "64d1d14e51e3c1e44e7d7e3c"
+  },
+  "nombres": "Ana",
+  "apellidos": "Martínez",
+  "codigo": "2023015",
+  "semestre": "5",
+  "creditos": 100,
+  "email": "ana.martinez@example.com",
+  "contrasenia": "clave456",
+  "direccion": "Avenida Secundaria 789",
+  "numero_telefonico": "345-678-9012",
+  "genero": "Femenino",
+  "dni": "45678901",
+  "fecha_nacimiento": {
+    "$date": "1999-10-15T00:00:00.000Z"
+  },
+  "colegio_procedencia": "Colegio ABC"
+},
+{
+  "_id": {
+    "$oid": "64d1d14e51e3c1e44e7d7e3d"
+  },
+  "nombres": "Carlos",
+  "apellidos": "Rodríguez",
+  "codigo": "2023020",
+  "semestre": "7",
+  "creditos": 150,
+  "email": "carlos.rodriguez@example.com",
+  "contrasenia": "clave789",
+  "direccion": "Callejón Secreto 123",
+  "numero_telefonico": "456-789-0123",
+  "genero": "Masculino",
+  "dni": "56789012",
+  "fecha_nacimiento": {
+    "$date": "1997-02-28T00:00:00.000Z"
+  },
+  "colegio_procedencia": "Colegio XYZ"
+}]
